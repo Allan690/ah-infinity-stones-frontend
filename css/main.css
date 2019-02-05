@@ -1,0 +1,27 @@
+.message, .success, .error, .warning {
+  border: 4px solid #ccc;
+  padding: 10px;
+  color: #333; }
+
+body {
+  color: #86c232;
+  font: "Segoe UI", Arial, sans-serif; }
+
+.app-header {
+  background-color: #86c232; }
+
+.app-link {
+  color: #86c232;
+  text-decoration: none; }
+
+.spinner {
+  color: #f0ff0f; }
+
+.success {
+  border-color: #86c232; }
+
+.error {
+  border-color: red; }
+
+.warning {
+  border-color: yellow; }
