@@ -16,6 +16,7 @@ import jwtDecode from '../../../node_modules/jwt-decode';
 import SocialShare from '../ArticleShare/shareArticle';
 import ReportArticle from './ReportArticle';
 import BookMarkArticle from '../Bookmark/bookmark';
+import Loader from '../../views/Loader';
 
 import Comment from '../../views/Comment';
 
@@ -310,7 +311,7 @@ class Article extends Component {
      </div>
    ) : (
      <div className='article'>
-        Unfortunately, we cannot fetch this article. Try again later...
+        <Loader />
      </div>
    );
    return <div className='container'>{singleArticle}</div>;
