@@ -26,8 +26,11 @@
     color: #86C232 !important;
 }
 
-.true {
+.liking {
     background-color: #86C232 !important;
+}
+.disliking {
+    background-color: #d9534f !important;
 }
 
 #msg {
@@ -60,4 +63,7 @@
 }
 .article-author {
     padding-right: 100px;
+}
+.reader-only, .pull-right{
+    margin-top: 5%;
 }

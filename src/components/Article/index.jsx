@@ -17,7 +17,7 @@ import SocialShare from '../ArticleShare/shareArticle';
 import ReportArticle from './ReportArticle';
 import BookMarkArticle from '../Bookmark/bookmark';
 
-import Comment from '../../views/Comment'
+import Comment from '../../views/Comment';
 
 class Article extends Component {
   constructor(props) {
@@ -185,17 +185,17 @@ class Article extends Component {
               }
            </div>
            <div className='pull-right'>
-             <span className='caption code'>
+             <span>
                {dislikeCount === null ? article.dislikes_count : dislikeCount}
                 &nbsp;
              </span>
              <button
                type='button'
                id='dislike'
-               className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
+               className={`btn btn-primary btn-sm pull-right react-button ${
                  disliked === null
-                   ? article.disliking && isAuth === 'true'
-                   : disliked && isAuth === 'true'
+                   ? article.disliking && isAuth === 'true' && 'disliking'
+                   : disliked && isAuth === 'true' && 'disliking'
                } `}
                onClick={this.handleDislike}
              >
@@ -205,19 +205,20 @@ class Article extends Component {
              </button>
            </div>
            <div className='pull-right'>
-             <span className='caption code'>
+             <span>
                {likeCount === null ? article.likes_count : likeCount}
                 &nbsp;
              </span>
              <button
                type='button'
                id='like'
-               className={`btn btn-primary btn-info btn-sm pull-right button-theme react-button ${
+               className={`btn btn-primary btn-sm pull-right react-button ${
                  liked === null
-                   ? article.liking && isAuth === 'true'
-                   : liked && isAuth === 'true'
+                   ? article.liking && isAuth === 'true' && 'liking'
+                   : liked && isAuth === 'true' && 'liking'
                } `}
                onClick={this.handleLike}
+               enabled
              >
                {' '}
                 &nbsp;
