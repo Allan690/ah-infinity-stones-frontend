@@ -30,9 +30,14 @@ ul > li > input, textarea {
 #publishBtn {
     background-color: $primary-color;
     border-color: $primary-color;
+    color: #fff;
+    height: 40px;
+    width: 15%;
 }
 #publishBtn:hover {
-    color: $secondary-color;
+    background-color: #222629!important;
+    opacity: 0.7;
+    color: #fff!important;
 }
 label {
     font-weight: bold;
@@ -43,6 +48,7 @@ label {
     border-width: 0.5px;
 
     border-color: LightGray;
+    border-radius: 5px;
 }
 .demo-editor {
     padding-top: 0px;
@@ -54,9 +60,10 @@ label {
     margin-bottom: 0.3em;
     padding-left: 0.3em;
     padding-right: 0.3em;
+    border-radius: 5px;
+    height: 200px;
 }
 .toolbar-class {
     margin: 0.3em;
+    border-radius: 5px;
 }
-
-

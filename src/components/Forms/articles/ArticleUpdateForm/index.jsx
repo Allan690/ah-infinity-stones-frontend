@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './articleUpdate.scss';
@@ -29,28 +30,29 @@ class ArticleUpdate extends Component {
       description: this.state.articleDescription,
       body: document.getElementById('articleBody').value,
       tag: this.state.articleTags,
-      artSlug: this.props.match.params.art_slug
+      artSlug: this.props.match.params.art_slug,
     };
     this.props.updateArticleAction(article);
     this.props.history.push('/');
   }
+
   render() {
     const articleBody = this.props.article.body;
     return (
       <div>
-        <div className="container">
-          <form id="articleUpdateForm" method="post" encType="multipart/form-data" onSubmit={this.handleSubmit} >
-            <ul className="article-update-form">
-              <li><label htmlFor="articleTitle">Title</label></li>
-              <li><input type="text" name="articleTitle" id="articleTitle" required defaultValue={this.props.article.title} onChange={this.onChange} /></li>
-              <li><label htmlFor="articleDescription" >Description</label></li>
-              <li><textarea name="articleDescription" id="articleDescription" required defaultValue={this.props.article.description} onChange={this.onChange} /></li>
-              <li><label htmlFor="articleBody">Body</label></li>
-              <div id="toolbar-container" />
+        <div className='container'>
+          <form id='articleUpdateForm' method='post' encType='multipart/form-data' onSubmit={this.handleSubmit}>
+            <ul className='article-update-form'>
+              <li><label htmlFor='articleTitle'>Title</label></li>
+              <li><input type='text' name='articleTitle' id='articleTitle' required defaultValue={this.props.article.title} onChange={this.onChange} /></li>
+              <li><label htmlFor='articleDescription'>Description</label></li>
+              <li><textarea name='articleDescription' id='articleDescription' required defaultValue={this.props.article.description} onChange={this.onChange} /></li>
+              <li><label htmlFor='articleBody'>Body</label></li>
+              <div id='toolbar-container' />
               <li><EditorToolbar article_body={articleBody} /></li>
-              <li><label htmlFor="articleTags" >Tags</label></li>
-              <li><input type="text" name="articleTags" id="articleTags" required defaultValue={this.props.article.tag} onChange={this.onChange} /></li>
-              <li><button type="submit" id="publishBtn">Submit</button></li>
+              <li><label htmlFor='articleTags'>Tags</label></li>
+              <li><input type='text' name='articleTags' id='articleTags' required defaultValue={this.props.article.tag} onChange={this.onChange} /></li>
+              <li><button type='submit' id='publishBtn' className='btn btn-default'>Update</button></li>
             </ul>
           </form>
         </div>
