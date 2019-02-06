@@ -35,7 +35,7 @@ class Navbar extends Component {
               && (
                 <li className='nav-item dropdown'>
                   <NavLink className='nav-link dropdown-toggle' to='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                  Account
+                    { localStorage.getItem('email') }
                   </NavLink>
                   <div className='dropdown-menu' aria-labelledby='navbarDropdown' id='drop-menu'>
                     <Link className='dropdown-item' to='/profile'>Profile</Link>

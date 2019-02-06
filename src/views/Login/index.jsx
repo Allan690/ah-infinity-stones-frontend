@@ -29,6 +29,7 @@ class Login extends Component {
   handleLogin = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
+    localStorage.setItem('email', email);
     const { requestLogin } = this.props;
     requestLogin({ email, password });
     this.setState({
@@ -39,7 +40,7 @@ class Login extends Component {
 
   static handleSuccess = (message) => {
     successMessage(message);
-    return <Redirect to="/" />;
+    return <Redirect to='/' />;
   };
 
   handleChange = (event) => {
