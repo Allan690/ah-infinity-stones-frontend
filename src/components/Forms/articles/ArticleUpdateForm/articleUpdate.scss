@@ -3,13 +3,14 @@ $primary-color: #86c232;
 $secondary-color: #222629;
 
 // $npm run build-css will print in generated css
-#articleForm {
+#articleUpdateForm {
     width:95%;
-    border: 1px solid black;
+    border: 1px solid LightGray;
     align-content: center;
     margin:2em;
     display: flex;
-    padding-right: 4em;
+    padding: 2em;
+    border-radius: 5px;
 }
 .article-update-form > li {
     list-style: none;
@@ -33,6 +34,7 @@ ul > li > input, textarea {
     color: #fff;
     height: 40px;
     width: 15%;
+    min-width: 120px;
 }
 #publishBtn:hover {
     background-color: #222629!important;

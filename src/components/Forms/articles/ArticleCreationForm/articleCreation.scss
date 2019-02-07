@@ -5,11 +5,12 @@ $secondary-color: #222629;
 // $npm run build-css will print in generated css
 #articleForm {
     width:95%;
-    border: 1px solid black;
+    border: 1px solid #e6e6e6;
     align-content: center;
     margin:2em;
     display: flex;
-    padding-right: 4em;
+    padding: 2em;
+    border-radius: 5px
 }
 .article-creation-form > li {
     list-style:none;
@@ -26,9 +27,15 @@ ul > li > input, textarea {
 #publishBtn {
     background-color: $primary-color;
     border-color: $primary-color;
+    height: 60px !important;
+    min-width: 120px;
 }
 #publishBtn:hover {
     color: $secondary-color;
+    border: none;
+}
+#publishBtn i {
+    color: #fff !important;
 }
 label {
     font-weight: bold;

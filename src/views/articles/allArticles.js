@@ -9,7 +9,13 @@ const AllArticlesView = () => (
     <GetAllArticles />
     <div id='article_write'>
       <div id='write_button'>
-        <Link to='/articles'><button className='btn btn-default' type='button'>Write Your Story</button></Link>
+        <Link to='/articles'>
+          <button className='btn btn-default' type='button'>
+            <i className='far fa-edit' />
+            {' '}
+            Write Your Story
+          </button>
+        </Link>
       </div>
     </div>
   </div>

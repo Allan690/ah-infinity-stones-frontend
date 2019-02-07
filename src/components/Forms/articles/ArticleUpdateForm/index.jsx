@@ -52,7 +52,13 @@ class ArticleUpdate extends Component {
               <li><EditorToolbar article_body={articleBody} /></li>
               <li><label htmlFor='articleTags'>Tags</label></li>
               <li><input type='text' name='articleTags' id='articleTags' required defaultValue={this.props.article.tag} onChange={this.onChange} /></li>
-              <li><button type='submit' id='publishBtn' className='btn btn-default'>Update</button></li>
+              <li>
+                <button type='submit' id='publishBtn' className='btn btn-default btn-lg'>
+                  <i className='far fa-save' />
+                  {' '}
+                  Update
+                </button>
+              </li>
             </ul>
           </form>
         </div>

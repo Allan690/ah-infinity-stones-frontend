@@ -43,7 +43,13 @@ class ArticleCreation extends Component {
               <li><EditorToolbar /></li>
               <li><label htmlFor="articleTags">Tags</label></li>
               <li><input type="text" name="articleTags" id="articleTags" placeholder="Tags" /></li>
-              <li><button type="submit" id="publishBtn">Submit</button></li>
+              <li>
+                <button type='submit' id='publishBtn' className='btn btn-default btn-lg'>
+                  <i className='far fa-save' />
+                  {' '}
+                  Publish
+                </button>
+              </li>
             </ul>
           </form>
         </div>
