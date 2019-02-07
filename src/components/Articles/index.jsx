@@ -6,6 +6,7 @@ import ReactPaginate from 'react-paginate';
 import { getAllArticlesRequestAction } from '../../redux/actions/articleActions';
 import { errorMessage } from '../../helpers/messages';
 import './Articles.scss';
+import Loader from '../../views/Loader';
 
 class GetAllArticles extends Component {
   constructor(props) {
@@ -104,41 +105,44 @@ class GetAllArticles extends Component {
           </div>
         );
       })
-    ) : (<div className='card'>Loading...</div>);
+    ) : (<div className='card'>No Articles Found</div>);
     return (
-      <div>
-        <div className='page-header text-center'><h3>{ this.props.header }</h3></div>
-        <div className='container' id='allArticles'><div className='card-columns'>{ this.state.selectedArticles }</div></div>
-        <table id='allArticlesPagination' className='table'>
-          <tbody>
-            <tr>
-              <td>
-                <input type='number' name='perPage' list='articlesPerPage' placeholder='articles per page' min='1' id='articlesPerPageInput' onChange={this.handlePerPageInput} />
-                <datalist id='articlesPerPage'>
-                  <option value='5'>5</option>
-                  <option value='10'>10</option>
-                  <option value='20'>20</option>
-                </datalist>
-              </td>
-              <td>
-                <ReactPaginate
-                  previousLabel='previous'
-                  nextLabel='next'
-                  breakLabel='...'
-                  breakClassName='break-me'
-                  pageCount={Math.ceil(this.articlesList.length / this.state.articlesPerPage)}
-                  marginPagesDisplayed={2}
-                  pageRangeDisplayed={3}
-                  onPageChange={this.handlePageClick}
-                  containerClassName='pagination'
-                  subContainerClassName='pages pagination'
-                  activeClassName='active'
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      this.state.selectedArticles.length > 0
+        ? (
+          <div>
+            <div className='page-header text-center'><h3>{ this.props.header }</h3></div>
+            <div className='container' id='allArticles'><div className='card-columns'>{ this.state.selectedArticles }</div></div>
+            <table id='allArticlesPagination' className='table'>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type='number' name='perPage' list='articlesPerPage' placeholder='articles per page' min='1' id='articlesPerPageInput' onChange={this.handlePerPageInput} />
+                    <datalist id='articlesPerPage'>
+                      <option value='5'>5</option>
+                      <option value='10'>10</option>
+                      <option value='20'>20</option>
+                    </datalist>
+                  </td>
+                  <td>
+                    <ReactPaginate
+                      previousLabel='previous'
+                      nextLabel='next'
+                      breakLabel='...'
+                      breakClassName='break-me'
+                      pageCount={Math.ceil(this.articlesList.length / this.state.articlesPerPage)}
+                      marginPagesDisplayed={2}
+                      pageRangeDisplayed={3}
+                      onPageChange={this.handlePageClick}
+                      containerClassName='pagination'
+                      subContainerClassName='pages pagination'
+                      activeClassName='active'
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        ) : (<div className='article'><Loader /></div>)
     );
   }
 }
