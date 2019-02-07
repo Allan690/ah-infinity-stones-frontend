@@ -33,10 +33,6 @@ describe('All Articles Component', () => {
     // let article_div = articlesContainer.find('div')
     expect(articlesContainer.exists()).toEqual(true);
   });
-  it('Check if card-columns exist', () => {
-    const cardColumns = reduxArticles.find('div.card-columns');
-    expect(cardColumns.exists()).toEqual(true);
-  });
   it('articles component should match snapshot', () => {
     expect(articlesContainer.getElements()).toMatchSnapshot();
   });

@@ -5,7 +5,7 @@ describe('Bookmarks reducer', () => {
   it('has an initial state', () => {
     expect(bookmarksReducer(undefined, { type: undefined })).toEqual({
       bookmarks: [],
-      error: '',
+      error: null,
     });
   });
   it('it can send a get bookmarks request', () => {
@@ -15,7 +15,7 @@ describe('Bookmarks reducer', () => {
       }),
     ).toEqual({
       bookmarks: [],
-      error: '',
+      error: null,
     });
   });
 });

@@ -1,4 +1,4 @@
-/* eslint-disable arrow-body-style */
+/* eslint-disable arrow-body-style, no-nested-ternary, react/require-default-props */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -18,7 +18,7 @@ class Bookmarks extends Component {
   }
 
   render() {
-    const { bookmarks } = this.props;
+    const { bookmarks, bookmarksError } = this.props;
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const location = '/bookmarks';
     const bookmarksList = bookmarks && bookmarks.length ? (
@@ -27,18 +27,38 @@ class Bookmarks extends Component {
           <Bookmark key={bookmark.id} bookmark={bookmark} />
         );
       })
-    ) : (<div id='loader-container' className='text-center'><Loader /></div>);
+    ) : (
+      bookmarks.length === 0 && bookmarksError !== null
+        ? (
+          <div>
+            <h6>No Available Bookmarks</h6>
+            <Link to='/profile'>
+              <i className='fas fa-chevron-circle-left' />
+              Back to Profile
+            </Link>
+            {' | '}
+            <Link to='/'>
+              <i className='fab fa-readme' />
+              View Articles
+            </Link>
+          </div>
+        ) : (<div id='loader-container' className='text-center'><Loader /></div>)
+    );
     return (
-      isLoggedIn !== 'true' ? (
-        <div className='container jumbotron text-center'>
-          <Link to={{
-            pathname: '/login',
-            from: location,
-          }}
+      isLoggedIn !== 'true'
+        ? (
+          <div
+            className='container jumbotron text-center'
           >
-          Please log in
-          </Link>
-        </div>)
+            <Link to={{
+              pathname: '/login',
+              from: location,
+            }}
+            >
+            Please log in
+            </Link>
+          </div>
+        )
         : (
           <div className='card text-center'>
             <div className='card-header'>
@@ -56,10 +76,12 @@ class Bookmarks extends Component {
 Bookmarks.propTypes = {
   requestBookmarks: PropTypes.func.isRequired,
   bookmarks: PropTypes.arrayOf(PropTypes.object).isRequired,
+  bookmarksError: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   bookmarks: state.bookmarksReducer.bookmarks,
+  bookmarksError: state.bookmarksReducer.error,
 });
 
 const actionCreators = { requestBookmarks };

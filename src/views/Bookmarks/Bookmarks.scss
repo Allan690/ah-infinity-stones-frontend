@@ -1,10 +1,12 @@
+ $primary-color: #86C232;
+ $secondary-color: #222629;
 .loader {
   width: 80px;
   height:80px;
   top: 15%;
   border: 15px solid #f3f3f3;
   border-radius: 50%;
-  border-bottom: 16px solid #86C232;
+  border-bottom: 16px solid $primary-color;
   border-top: 16px solid #222629;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
@@ -15,9 +17,17 @@
   margin: 0 auto;
   width: 20%;
 }
-.jumbotron {
+.card-body.jumbotron {
   margin-top: 5%;
   width: 30%;
+  min-width: 120px !important;
+}
+.card-body a {
+  color: $secondary-color;
+}
+.card-body a i {
+  margin-right: 1% !important;
+  color: $secondary-color !important;
 }
 .card {
   width: 70%;

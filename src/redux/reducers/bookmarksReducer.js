@@ -2,7 +2,7 @@ import { REQUEST_BOOKMARKS, BOOKMARKS_SUCCESS, BOOKMARKS_FAILURE } from '../acti
 
 const initialState = {
   bookmarks: [],
-  error: '',
+  error: null,
 };
 
 
@@ -20,7 +20,7 @@ const bookmarksReducer = (state = initialState, action) => {
     case BOOKMARKS_FAILURE:
       return {
         ...state,
-        error: action.error,
+        error: 'action.error',
       };
     default:
       return state;
